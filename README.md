@@ -1,3 +1,7 @@
+# Three Max Cut Algorithms: ILP, Approximation and Heuristic
+
+Implementation realized in the context of the lecture 'Algorithm Engineering' at the University of Konstanz. This repository contains three algorithms to solve the Max Cut problem on unweighted, undirected graphs: an exact algorithm using ILP, an approximation and a heuristic.
+
 ## Setup
 
 Depending on your operating system and hardware follow the installation procedures as explained in the docs: https://docs.modular.com/mojo/. Currently there is native support for MacOS (Apple Silicon) and Linux. For MacOS (Intel) and Windows you can use a development container or WSL.
