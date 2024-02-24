@@ -4,6 +4,8 @@ Implementation realized in the context of the lecture 'Algorithm Engineering' at
 
 ## Setup
 
+### Mojo
+
 Depending on your operating system and hardware follow the installation procedures as explained in the docs: https://docs.modular.com/mojo/. Currently there is native support for MacOS (Apple Silicon) and Linux. For MacOS (Intel) and Windows you can use a development container or WSL.
 
 To correctly setup the development container:
