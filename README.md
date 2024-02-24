@@ -20,3 +20,5 @@ https://github.com/modularml/mojo/issues/551
 
 ### Git
 https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials
+
+This didn't work. Rather I had to manually copy my keys into the ssh config inside the development container.
