@@ -1,5 +1,7 @@
 import pulp
 
+path_to_cplex = "/opt/ibm/ILOG/CPLEX_Studio2211/cplex/bin/x86-64_linux/cplex"
+
 def ilp_solve(file_path):
     #load graph
     graph = open(file_path)
@@ -45,7 +47,19 @@ def ilp_solve(file_path):
         j = data[e][1]
         lp += yij[e] <= 2 - xv[i] - xv[j], ""
 
+    solver = pulp.apis.CPLEX_CMD(path=path_to_cplex)
+
     #solve lp; no logs; set time limit to 120 seconds
-    lp.solve(pulp.apis.PULP_CBC_CMD(msg=False, timeLimit=120))
+    #lp.solve(pulp.apis.PULP_CBC_CMD(msg=False, timeLimit=120))
+    lp.solve(solver)
+
+    status = str(pulp.LpStatus[lp.status])
+    print("Solution: "+ status)
+
+    print("Optimal Solution:")
+    print("xv=1 values:")
+    for i in nodes:
+        if pulp.value(xv[i]) == 1:
+            print(i)
 
     print("Size of cut: ", pulp.value(lp.objective))

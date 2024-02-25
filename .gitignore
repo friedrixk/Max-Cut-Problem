@@ -1,3 +1,5 @@
 graphs/**
 ilp/__pycache__/ilp_solve.cpython-310.pyc
 ilp/__pycache__/ilp.cpython-310.pyc
+cplex_studio2211.linux_x86_64.bin
+check_solvers.py
