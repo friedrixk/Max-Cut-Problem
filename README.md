@@ -6,7 +6,7 @@ Implementation realized in the context of the lecture 'Algorithm Engineering' at
 
 ### Mojo
 
-Depending on your operating system and hardware follow the installation procedures as explained in the docs: https://docs.modular.com/mojo/. Currently there is native support for MacOS (Apple Silicon) and Linux. For MacOS (Intel) and Windows you can use a development container or WSL.
+Depending on your operating system and hardware follow the installation procedures as explained in the [docs](https://docs.modular.com/mojo/). Currently there is native support for MacOS (Apple Silicon) and Linux. For MacOS (Intel) and Windows you can use a development container or WSL.
 
 To correctly setup the development container:
 This has worked for me: https://docs.modular.com/mojo/manual/get-started/hello-world.html
@@ -22,9 +22,17 @@ Be careful to choose bash_profile and not zshrc or bashrc:
 If the above steps don't work try this:
 https://github.com/modularml/mojo/issues/551
 
-## Workflow
+# Run the code
+To run the code, execute the `max_cut.mojo` file:
 
-### Git
-https://code.visualstudio.com/remote/advancedcontainers/sharing-git-credentials
+    $ mojo max_cut.mojo
 
-This didn't work. Rather I had to manually copy my keys into the ssh config inside the development container.
+The three implemented algorithms will be executed one after the other on all files inside the `/graphs/performance` directory.
+
+If you want to use the CPLEX_CMD solver for the ILP solution, you can use the following command:
+
+    $ mojo max_cut.mojo "cplex"
+
+Make sure to have [IBM ILOG CPLEX Optimization Studio](https://www.ibm.com/de-de/products/ilog-cplex-optimization-studio) installed on the system where you are executing the code. You may need to change the `path_to_cplex` variable in `ilp.py` depending on where your CPLEX installation resides. See also: [How to configure a solver in PuLP](https://coin-or.github.io/pulp/guides/how_to_configure_solvers.html#).
+
+If no argument is specified, the default PuLP solver (CBC_CMD) will be used.

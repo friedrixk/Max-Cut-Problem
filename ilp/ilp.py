@@ -8,7 +8,7 @@ def ilp(solver_type:str):
     file_list = sorted(os.listdir("graphs/correctness_test"))
     print(file_list)
     for file in tqdm(file_list):
-        file_path = "graphs/correctness_test/" + file
+        file_path = "graphs/correctness/" + file
         solve_instance(solver_type, file_path)
     return "############ ILP finished ############"
 
