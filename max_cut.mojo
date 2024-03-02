@@ -15,26 +15,34 @@ fn test_graph_ds() raises:
     print(len(g.edges))
     g.print_vertices()
     g.print_edges()
-    let es = g.get_edges()
-    for i in range(len(es)):
-        var e = es[i]
-        print(str(e[0]) + "->" + str(e[1]))
+    var n = g.get_neighbors(1)
+    var es = g.get_edges()
+    var vs = g.get_vertices()
     print("Neighbors of 1:")
-    let n = g.get_neighbors(1)
     for i in range(len(n)):
         print(n[i])
+    print("Edges:")
     g.delete_edge(2,1)
     g.delete_edge(1,2)
+    g.print_edges()
+    g.add_vertex(1)
+    g.add_vertex(4)
+    g.add_vertex(5)
+    g.add_vertex(6)
+    g.add_edge(4, 2)
+    g.add_edge(4, 1)
+    g.add_edge(4, 3)
+    g.print_vertices()
     g.print_edges()
 
 fn main() raises: 
     
     # Import local python modules
     Python.add_to_path("./ilp")
-    let ilp = Python.import_module("ilp")
+    var ilp = Python.import_module("ilp")
     
-    let argv = argv()
-    let argc = len(argv)
+    var argv = argv()
+    var argc = len(argv)
 
     # run ilp
     # if argc > 1 and argv[1] == "cplex":
