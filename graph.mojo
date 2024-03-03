@@ -24,10 +24,10 @@ struct Graph:
 
     fn add_vertex(inout self, v: Int):
         if IntKey(v) not in self.edges:
-            self.vertices.push_back(v)
-            self.edges[IntKey(v)] = DynamicVector[Int]()
-        else:
             print("Vertex " + str(v) + " already exists")
+        else:
+            self.vertices.push_back(v)
+            self.edges.__setitem__(IntKey(v), DynamicVector[Int]())
     
     fn add_edge(inout self, v:Int, u:Int) raises:
         if not self.contains_edge(v, u):    
@@ -51,7 +51,7 @@ struct Graph:
     fn get_vertices(self) -> DynamicVector[Int]:
         return self.vertices
     
-    fn get_edges(self) raises -> Dict[IntKey, DynamicVector[Int]]:
+    fn get_edges(inout self) -> Dict[IntKey, DynamicVector[Int]]:
         return self.edges
     
     fn get_neighbors(self, v: Int) raises -> DynamicVector[Int]:
@@ -89,3 +89,7 @@ struct Graph:
             for j in range(len(neighbors)):
                 var u = neighbors[j]
                 print(str(v) + "->" + str(u))
+
+    fn __copyinit__(inout self, other: Self):
+        self.vertices = other.vertices
+        self.edges = other.edges
