@@ -51,11 +51,11 @@ fn test_graph_ds() raises:
 fn main() raises: 
     
     # Import local python modules
-    # Python.add_to_path("./ilp")
-    # var ilp = Python.import_module("ilp")
+    Python.add_to_path("./ilp")
+    var ilp = Python.import_module("ilp")
     
-    # var argv = argv()
-    # var argc = len(argv)
+    var argv = argv()
+    var argc = len(argv)
 
 
 
